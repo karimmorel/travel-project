@@ -1,0 +1,25 @@
+TravelBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: TravelBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        inventories:
+            targetEntity: Inventory
+            mappedBy: category
+    fields:
+        name:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+    lifecycleCallbacks: {  }

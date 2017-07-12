@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Category creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Créer" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('category_index') }}">Liste des catégories</a>
+            <a href="{{ path('_index') }}">Liste des équipements</a>
+        </li>
+    </ul>
+{% endblock %}

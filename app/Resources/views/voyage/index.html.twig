@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+  <h2>Liste des Visites à faire</h2>
+  <p>Je regroupe toutes les visites du monde, que je recoupe ensuite par ville.</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Ville</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+<tbody>
+    {% for voyage in voyages %}
+    <tr>
+        <td><a href="{{ path('voyage_show', { 'id': voyage.id }) }}">{{ voyage.id }}</a></td>
+        <td><a href="{{ voyage.link }}" target="_blank">{{ voyage.name }}</a></td>
+        <td>{{ voyage.city }}</td>
+        <td>{{ voyage.description }}</td>
+        <td>
+            <ul>
+                <li>
+                    <a href="{{ path('voyage_show', { 'id': voyage.id }) }}">show</a>
+                </li>
+                <li>
+                    <a href="{{ path('voyage_edit', { 'id': voyage.id }) }}">edit</a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div>
+<ul>
+    <li>
+        <a href="{{ path('voyage_new') }}">Créer une nouvelle visite</a><br/>
+        <a href="{{ path('_index') }}">Liste des équipements</a><br/>
+        <a href="{{ path('category_index') }}">Liste des catégories</a><br/>
+    </li>
+</ul>
+{% endblock %}

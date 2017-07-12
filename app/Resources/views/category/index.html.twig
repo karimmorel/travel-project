@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+  <h2>Liste des Catégories d'équipement</h2>
+  <p>Je regroupe mes équipements en catégories</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+<tbody>
+    {% for category in categories %}
+        <tr>
+            <td><a href="{{ path('_show', { 'id': category.id }) }}">{{ category.id }}</a></td>
+            <td>{{ category.name }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('category_show', { 'id': category.id }) }}">Afficher</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('category_edit', { 'id': category.id }) }}">Modifier</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+</tbody>
+</table>
+</div>
+<ul>
+    <li>
+        <a href="{{ path('category_new') }}">Créer une nouvelle catégorie</a><br/>
+        <a href="{{ path('_index') }}">Liste des équipements</a><br/>
+        <a href="{{ path('voyage_index') }}">Liste des visites</a>
+    </li>
+</ul>
+{% endblock %}

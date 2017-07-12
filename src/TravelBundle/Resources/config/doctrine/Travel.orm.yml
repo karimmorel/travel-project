@@ -1,0 +1,39 @@
+TravelBundle\Entity\Travel:
+    type: entity
+    table: null
+    repositoryClass: TravelBundle\Repository\TravelRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        destination:
+            type: string
+            length: 255
+        link:
+            type: string
+            length: 255
+        webPrice:
+            type: integer
+            column: web_price
+        targetPrice:
+            type: integer
+            column: target_price
+        date:
+            type: datetime
+        roundTrip:
+            type: boolean
+            column: round_trip
+        returnDate:
+            type: datetime
+            nullable: true
+            column: return_date
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+    lifecycleCallbacks: {  }

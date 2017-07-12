@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ inventory.name }}</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ inventory.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ inventory.name }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ category }}</td>
+            </tr>
+            <tr>
+                <th>Priority</th>
+                <td>{{ inventory.priority }}</td>
+            </tr>
+            <tr>
+                <th>Minprice</th>
+                <td>{{ inventory.minPrice }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ inventory.price }}</td>
+            </tr>
+            <tr>
+                <th>Maxprice</th>
+                <td>{{ inventory.maxPrice }}</td>
+            </tr>
+            <tr>
+                <th>Link</th>
+                <td>{{ inventory.link }}</td>
+            </tr>
+            <tr>
+                <th>Informations</th>
+                <td>{{ inventory.informations }}</td>
+            </tr>
+            <tr>
+                <th>Buy</th>
+                <td>{% if inventory.buy %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Worth</th>
+                <td>{{ inventory.worth }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if inventory.createdAt %}{{ inventory.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if inventory.updatedAt %}{{ inventory.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('_index') }}">Liste des équipements</a>
+        </li>
+        <li>
+            <a href="{{ path('_edit', { 'id': inventory.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

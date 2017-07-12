@@ -1,0 +1,15 @@
+inventory:
+    resource: "@TravelBundle/Resources/config/routing/inventory.yml"
+    prefix:   /
+
+category:
+    resource: "@TravelBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+voyage:
+    resource: "@TravelBundle/Resources/config/routing/voyage.yml"
+    prefix:   /voyage
+
+travel_homepage:
+    path:     /
+    defaults: { _controller: TravelBundle:Inventory:index }

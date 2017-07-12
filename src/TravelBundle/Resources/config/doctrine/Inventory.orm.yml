@@ -1,0 +1,51 @@
+TravelBundle\Entity\Inventory:
+    type: entity
+    table: null
+    repositoryClass: TravelBundle\Repository\InventoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        category:
+            targetEntity: Category
+            inversedBy: inventories
+            joinColumn:
+                name: type
+                referencedColumnName: id
+    fields:
+        name:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+        priority:
+            type: integer
+        minPrice:
+            type: integer
+            column: min_price
+        price:
+            type: integer
+        maxPrice:
+            type: integer
+            column: max_price
+        link:
+            type: string
+            length: 255
+        informations:
+            type: text
+        buy:
+            type: boolean
+        worth:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+    lifecycleCallbacks: {  }

@@ -1,0 +1,35 @@
+TravelBundle\Entity\Voyage:
+    type: entity
+    table: null
+    repositoryClass: TravelBundle\Repository\VoyageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        city:
+            type: string
+            length: 255
+        link:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+        position:
+            type: string
+            length: 255
+        priority:
+            type: integer
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+    lifecycleCallbacks: {  }

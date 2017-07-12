@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+  <h2>Liste des Équipement à acheter</h2>
+  <p>Je regroupe tout ce qui peut être intéressant, pour les comparer et savoir lequel je vais acheter après.</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Catégorie</th>
+        <th>Priorité</th>
+        <th>Prix Min</th>
+        <th>Prix objectif</th>
+        <th>Prix Max</th>
+        <th>Informations</th>
+        <th>Acheté ?</th>
+        <th>Autre</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+<tbody>
+        {% for inventory in inventories %}
+        <tr class="info">
+            <td><a href="{{ path('_show', { 'id': inventory.id }) }}">{{ inventory.id }}</a></td>
+            <td><a href="{{ inventory.link }}" target="_blank">{{ inventory.name }}</a></td>
+            <td>{% for category in categories %}
+                {% if(category.id == inventory.type) %}
+                    {{ category.name }}
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>{{ inventory.priority }}</td>
+            <td>{{ inventory.minPrice }}</td>
+            <td>{{ inventory.price }}</td>
+            <td>{{ inventory.maxPrice }}</td>
+            <td>{{ inventory.informations }}</td>
+            <td>{% if inventory.buy %}Yes{% else %}No{% endif %}</td>
+            <td>{{ inventory.worth }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('_show', { 'id': inventory.id }) }}">Afficher</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('_edit', { 'id': inventory.id }) }}">Modifier</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<ul>
+    <li>
+        <a href="{{ path('_new') }}">Créer un nouvel équipement</a><br/>
+        <a href="{{ path('category_index') }}">Liste des catégories</a><br/>
+        <a href="{{ path('voyage_index') }}">Liste des visites</a><br/>
+        <a href="{{ path('category_new') }}">Créer une nouvelle catégorie</a><br/>
+    </li>
+</ul>
+{% endblock %}

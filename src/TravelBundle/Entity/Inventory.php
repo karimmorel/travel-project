@@ -1,0 +1,407 @@
+<?php
+
+namespace TravelBundle\Entity;
+
+/**
+ * Inventory
+ */
+class Inventory
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $type;
+
+    /**
+     * @var int
+     */
+    private $priority;
+
+    /**
+     * @var int
+     */
+    private $minPrice;
+
+    /**
+     * @var int
+     */
+    private $price;
+
+    /**
+     * @var int
+     */
+    private $maxPrice;
+
+    /**
+     * @var string
+     */
+    private $link;
+
+    /**
+     * @var string
+     */
+    private $informations;
+
+    /**
+     * @var bool
+     */
+    private $buy;
+
+    /**
+     * @var string
+     */
+    private $worth;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    public function __construct()
+    {
+        $this->createdAt= new \DateTime();
+        $this->updatedAt= new \DateTime();
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Inventory
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Inventory
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set priority
+     *
+     * @param integer $priority
+     *
+     * @return Inventory
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Get priority
+     *
+     * @return int
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * Set minPrice
+     *
+     * @param integer $minPrice
+     *
+     * @return Inventory
+     */
+    public function setMinPrice($minPrice)
+    {
+        $this->minPrice = $minPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get minPrice
+     *
+     * @return int
+     */
+    public function getMinPrice()
+    {
+        return $this->minPrice;
+    }
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     *
+     * @return Inventory
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return int
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set maxPrice
+     *
+     * @param integer $maxPrice
+     *
+     * @return Inventory
+     */
+    public function setMaxPrice($maxPrice)
+    {
+        $this->maxPrice = $maxPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get maxPrice
+     *
+     * @return int
+     */
+    public function getMaxPrice()
+    {
+        return $this->maxPrice;
+    }
+
+    /**
+     * Set link
+     *
+     * @param string $link
+     *
+     * @return Inventory
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * Set informations
+     *
+     * @param string $informations
+     *
+     * @return Inventory
+     */
+    public function setInformations($informations)
+    {
+        $this->informations = $informations;
+
+        return $this;
+    }
+
+    /**
+     * Get informations
+     *
+     * @return string
+     */
+    public function getInformations()
+    {
+        return $this->informations;
+    }
+
+    /**
+     * Set buy
+     *
+     * @param boolean $buy
+     *
+     * @return Inventory
+     */
+    public function setBuy($buy)
+    {
+        $this->buy = $buy;
+
+        return $this;
+    }
+
+    /**
+     * Get buy
+     *
+     * @return bool
+     */
+    public function getBuy()
+    {
+        return $this->buy;
+    }
+
+    /**
+     * Set worth
+     *
+     * @param string $worth
+     *
+     * @return Inventory
+     */
+    public function setWorth($worth)
+    {
+        $this->worth = $worth;
+
+        return $this;
+    }
+
+    /**
+     * Get worth
+     *
+     * @return string
+     */
+    public function getWorth()
+    {
+        return $this->worth;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Inventory
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Inventory
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+    /**
+     * @var \TravelBundle\Entity\Category
+     */
+    private $category;
+
+
+    /**
+     * Set category
+     *
+     * @param \TravelBundle\Entity\Category $category
+     *
+     * @return Inventory
+     */
+    public function setCategory(\TravelBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \TravelBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+}
