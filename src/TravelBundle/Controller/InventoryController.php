@@ -41,14 +41,13 @@ class InventoryController extends Controller
         $form = $this->createForm('TravelBundle\Form\InventoryType', $inventory);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $category = new Category();
-            $category->setName($form["type"]->getData());
-            $inventory->setType('1');
-            dump($form["type"]->getData());die();
+            $category_id = $inventory->getType()->getId();
+            $form->getData()->setType($category_id);
+            $inventory->setType($category_id);
             $em = $this->getDoctrine()->getManager();
             $em->persist($inventory);
-            $em->persist($category);
             $em->flush();
 
             return $this->redirectToRoute('_show', array('id' => $inventory->getId()));

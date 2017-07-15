@@ -3,7 +3,7 @@
 namespace TravelBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,13 +16,11 @@ class InventoryType extends AbstractType
     {
         $builder
         ->add('name')
-        ->add('type', ChoiceType::class, array(
-            'choices' => array(
-                'Appareil Photo' => 1,
-                'Ordinateur' => 3,
-                'Micro' => 4,
-                'Carte Mémoire' => 6,
-                )
+        ->add('type', EntityType::class, array(
+            'class' => 'TravelBundle:Category',
+            'choice_label' => 'name',
+            'choice_value' => 'id',
+            'data' => 'id'
             ))
         ->add('priority')
         ->add('minPrice')
@@ -41,7 +39,7 @@ class InventoryType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'TravelBundle\Entity\Inventory'
-        ));
+            ));
     }
 
     /**
