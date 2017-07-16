@@ -27,7 +27,7 @@
             <td><a href="{{ path('_show', { 'id': inventory.id }) }}">{{ inventory.id }}</a></td>
             <td><a href="{{ inventory.link }}" target="_blank">{{ inventory.name }}</a></td>
             <td>{% for category in categories %}
-                {% if(category.id == inventory.type) %}
+                {% if(category.id == inventory.categoryId) %}
                     {{ category.name }}
                     {% endif %}
                 {% endfor %}
