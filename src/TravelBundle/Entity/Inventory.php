@@ -18,9 +18,9 @@ class Inventory
     private $name;
 
     /**
-     * @var string
+     * @var int
      */
-    private $type;
+    private $category_id;
 
     /**
      * @var int
@@ -375,6 +375,7 @@ class Inventory
     {
         return $this->updatedAt;
     }
+
     /**
      * @var \TravelBundle\Entity\Category
      */
@@ -403,5 +404,29 @@ class Inventory
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set categoryId
+     *
+     * @param integer $categoryId
+     *
+     * @return Inventory
+     */
+    public function setCategoryId($categoryId)
+    {
+        $this->category_id = $categoryId;
+
+        return $this;
+    }
+
+    /**
+     * Get categoryId
+     *
+     * @return integer
+     */
+    public function getCategoryId()
+    {
+        return $this->category_id;
     }
 }

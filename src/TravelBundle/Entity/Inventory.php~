@@ -18,9 +18,9 @@ class Inventory
     private $name;
 
     /**
-     * @var string
+     * @var int
      */
-    private $type;
+    private $category_id;
 
     /**
      * @var int
@@ -72,7 +72,11 @@ class Inventory
      */
     private $updatedAt;
 
-
+    public function __construct()
+    {
+        $this->createdAt= new \DateTime();
+        $this->updatedAt= new \DateTime();
+    }
 
     /**
      * Get id
@@ -371,6 +375,7 @@ class Inventory
     {
         return $this->updatedAt;
     }
+
     /**
      * @var \TravelBundle\Entity\Category
      */

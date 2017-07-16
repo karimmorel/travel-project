@@ -16,7 +16,7 @@ class InventoryType extends AbstractType
     {
         $builder
         ->add('name')
-        ->add('type', EntityType::class, array(
+        ->add('category_id', EntityType::class, array(
             'class' => 'TravelBundle:Category',
             'choice_label' => 'name',
             'choice_value' => 'id',

@@ -119,6 +119,8 @@ class Category
         $this->createdAt= new \DateTime();
         $this->updatedAt= new \DateTime();
     }
+
+    
     private $inventories;
 
 

@@ -13,14 +13,14 @@ TravelBundle\Entity\Inventory:
             targetEntity: Category
             inversedBy: inventories
             joinColumn:
-                name: type
+                name: category_id
                 referencedColumnName: id
     fields:
         name:
             type: string
             length: 255
-        type:
-            type: string
+        category_id:
+            type: integer
             length: 255
         priority:
             type: integer

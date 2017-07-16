@@ -2,6 +2,8 @@
 
 namespace TravelBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Category
  */
@@ -26,8 +28,6 @@ class Category
      * @var \DateTime
      */
     private $updatedAt;
-
-
 
     /**
      * Get id
@@ -115,8 +115,12 @@ class Category
      */
     public function __construct()
     {
-        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->products = new ArrayCollection();
+        $this->createdAt= new \DateTime();
+        $this->updatedAt= new \DateTime();
     }
+
+    
     private $inventories;
 
 

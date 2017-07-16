@@ -38,16 +38,15 @@ class InventoryController extends Controller
     public function newAction(Request $request)
     {
         $inventory = new Inventory();
+        $category = new Category();
         $form = $this->createForm('TravelBundle\Form\InventoryType', $inventory);
         $form->handleRequest($request);
 
-
         if ($form->isSubmitted() && $form->isValid()) {
-            $category_id = $inventory->getType()->getId();
-            $form->getData()->setType($category_id);
-            $inventory->setType($category_id);
+            $category = $inventory->getCategoryId();
             $em = $this->getDoctrine()->getManager();
             $em->persist($inventory);
+            $em->persist($category);
             $em->flush();
 
             return $this->redirectToRoute('_show', array('id' => $inventory->getId()));
